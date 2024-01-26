@@ -1,0 +1,78 @@
+/* Apply box-sizing to all elements, including padding and border in the width */
+html {
+  box-sizing: border-box;
+  background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed; /* Set background image with fixed position */
+  background-size: cover; /* Ensure background image covers the entire element */
+}
+
+/* Set box-sizing to inherit for all elements */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Body styling */
+body {
+  min-height: 100vh; /* Set minimum height to 100% of viewport height */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  font-family: sans-serif; /* Use sans-serif font */
+  font-size: 20px; /* Set base font size */
+  margin: 0; /* Remove default margin */
+}
+
+/* Styling for the slider container */
+.items {
+  height: 800px;
+  padding: 100px;
+  width: 100%;
+  border: 1px solid white; /* Set border with white color */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical overflow */
+  white-space: nowrap; /* Prevent wrapping of inline elements */
+  user-select: none; /* Disable text selection */
+  cursor: pointer; /* Set cursor to pointer */
+  transition: all 0.2s; /* Apply a smooth transition to all properties */
+  transform: scale(0.98); /* Apply a slight scale transformation */
+  will-change: transform; /* Optimize for transform animations */
+  position: relative; /* Set position to relative */
+  background: rgba(255,255,255,0.1); /* Set background color with alpha transparency */
+  font-size: 0; /* Hide font size to remove whitespace between inline elements */
+  perspective: 500px; /* Set perspective for 3D effect */
+}
+
+/* Active state styling for the slider container */
+.items.active {
+  background: rgba(255,255,255,0.3); /* Change background on active state */
+  cursor: grabbing; /* Set grabbing cursor */
+  cursor: -webkit-grabbing; /* For compatibility with WebKit browsers */
+  transform: scale(1); /* Remove scale transformation on active state */
+}
+
+/* Styling for each item in the slider */
+.item {
+  width: 200px; /* Set width of each item */
+  height: calc(100% - 40px); /* Calculate height with margin */
+  display: inline-flex; /* Display items in a row */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  font-size: 80px; /* Set font size */
+  font-weight: 100; /* Set font weight */
+  color: rgba(0,0,0,0.15); /* Set text color with alpha transparency */
+  box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15); /* Apply inset box shadow */
+}
+
+/* Background colors for each item based on position */
+.item:nth-child(9n+1) { background: dodgerblue; }
+.item:nth-child(9n+2) { background: goldenrod; }
+.item:nth-child(9n+3) { background: paleturquoise; }
+.item:nth-child(9n+4) { background: gold; }
+.item:nth-child(9n+5) { background: cadetblue; }
+.item:nth-child(9n+6) { background: tomato; }
+.item:nth-child(9n+7) { background: lightcoral; }
+.item:nth-child(9n+8) { background: darkslateblue; }
+.item:nth-child(9n+9) { background: rebeccapurple; }
+
+/* Transformation for even and odd items */
+.item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
+.item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
